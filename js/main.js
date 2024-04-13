@@ -30,7 +30,12 @@ const verificarInicioSesion = (usuario) => {
 
     //Filtar usuarios y contraseñar para verificar si son los mismos
 
-    let usuarioEncontrado = usuarios.find(u => u.usuario === usuario)
+    let usuarioEncontrado
+    let usuariosFiltrados = usuarios.filter(u => u.usuario === usuario)
+
+    if (usuariosFiltrados.length === 1) {
+        usuarioEncontrado = usuariosFiltrados[0]
+    }
 
     if (!usuarioEncontrado) {
         alert("Usuario no encontrado")
